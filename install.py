@@ -20,14 +20,14 @@ if not riffusion_skip_install:
     except pkg_resources.DistributionNotFound:
         print(f"{name} torchaudio is not installed, installing...")
         launch.run(
-            f'"{sys.executable}" -m pip install torchaudio',
+            f'"{sys.executable}" -m pip install torchaudio --user',
             f"[{name}] Installing torchaudio...",
             f"[{name}] Couldn't install torchaudio.",
         )
 
     # Install other requirements
     launch.run(
-        f'"{sys.executable}" -m pip install -r "{req_file}"',
+        f'"{sys.executable}" -m pip install -r "{req_file}" --user',
         f"[{name}] Installing requirements...",
         f"[{name}] Couldn't install requirements.",
     )
